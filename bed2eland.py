@@ -7,11 +7,11 @@ Created on 12-Feb-2010
 Convert a bed (https://genome.ucsc.edu/FAQ/FAQformat.html#format1) file to the eland format (http://support.illumina.com/sequencing/documentation.ilmn) as used by the illumina CASAVA pipeline 1.8+ 
 '''
 
-from argparse import ArgumentParser
+from argparse import ArgumentParser,FileType
 from warnings import warn
 
 parser=ArgumentParser(description='Convert a bed file to the eland format as used by the illumina CASAVA pipeline')
-parser.add_argument('BEDFILE',type=argparse.FileType('r'),help='Input BED file (use - from standard input)')
+parser.add_argument('BEDFILE',type=FileType('r'),help='Input BED file (use - from standard input)')
 parser.add_argument('--sequence_dummy','-s',action="store_true",help='A dummy sequence and quality string will be generated [default: blank to reduce file size]')
 parser.add_argument('--old','-o',action="store_true",help="Set quality string to the maximal value as specified in CASAVA 1.8 and earlier [default: CASAVA 1.8+]")
 parser.add_argument('--result_format','-r',action="store_true",help="Output the eland_result.txt format [default: eland_export.txt format]")
