@@ -21,7 +21,7 @@ dseq=""
 qseq=""
 qval="h" if args.old else "I"
 for lnum,txt in enumerate(args.BEDFILE):    
-  txt=txt.strip('\n').split('\t')
+	txt=txt.strip('\n').split('\t')
 	if len(txt)<6:
 	    print txt
 	    warn(("Columns < 6, Line {} skipped").format(lnum+1))
