@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 '''
+Created on 12-Feb-2010
+
+@author: Julius Muller
+
 Convert a bed (https://genome.ucsc.edu/FAQ/FAQformat.html#format1) file to the eland format (http://support.illumina.com/sequencing/documentation.ilmn) as used by the illumina CASAVA pipeline 1.8+ 
-Author: Julius Muller 2010
 '''
 
 from argparse import ArgumentParser
