@@ -4,10 +4,10 @@ Convert a bed (https://genome.ucsc.edu/FAQ/FAQformat.html#format1) file to the e
 Author: Julius Muller 2010
 '''
 
-import argparse
+from argparse import ArgumentParser
 from warnings import warn
 
-parser=argparse.ArgumentParser(description='Convert a bed file to the eland format as used by the illumina CASAVA pipeline')
+parser=ArgumentParser(description='Convert a bed file to the eland format as used by the illumina CASAVA pipeline')
 parser.add_argument('BEDFILE',type=argparse.FileType('r'),help='Input BED file (use - from standard input)')
 parser.add_argument('--sequence_dummy','-s',action="store_true",help='A dummy sequence and quality string will be generated [default: blank to reduce file size]')
 parser.add_argument('--old','-o',action="store_true",help="Set quality string to the maximal value as specified in CASAVA 1.8 and earlier [default: CASAVA 1.8+]")
