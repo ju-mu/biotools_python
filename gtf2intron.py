@@ -1,10 +1,26 @@
+#!/usr/bin/env python
 
+'''
 
+Created on 17-Mar-2011
+
+@author: Julius Muller
+Extract introns from a common GTF file
+
+'''
+
+from argparse import ArgumentParser,FileType
+from warnings import warn
 from collections import OrderedDict
 from operator import itemgetter
 
 
-gtf_file="/media/BIOFS/Genomes/mm9/ensembl/gtf/Mus_musculus.NCBIM37.57.gtf"
+parser=ArgumentParser(description='Extract introns from a common GTF file')
+parser.add_argument('GTFFILE',type=FileType('r'),help='Input GTF file (use - from standard input)')
+
+args=parser.parse_args()
+    
+gtf_file=args.GTFFILE.name
 
 def gtf2introns(gtf):
     intron_dict={}#container of the introns
@@ -93,8 +109,4 @@ for chrom in gord:
 
 igtf_fh.close()
 print("Successfully wrote %d lines to %s"%(igl,igtf))
-
-
-
-
 
